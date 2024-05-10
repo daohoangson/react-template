@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
 
-import "./App.css";
-import reactLogo from "./assets/react.svg";
+import "@/App.css";
+import reactLogo from "@/assets/react.svg";
 
 function App() {
   const [count, setCount] = useState(0);

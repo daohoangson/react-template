@@ -1,8 +1,8 @@
 import { userEvent } from "@testing-library/user-event";
 import { expect } from "vitest";
 
-import App from "./App";
-import { renderProviders } from "./tests/utils";
+import App from "@/App";
+import { renderProviders } from "@/tests/utils";
 
 describe("App", () => {
   it("renders counter", async () => {

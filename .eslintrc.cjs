@@ -35,6 +35,7 @@ module.exports = {
     ],
   },
   settings: {
+    "import/internal-regex": "^@/",
     "import/resolver": { node: true, typescript: true },
     react: { version: "detect" },
   },
