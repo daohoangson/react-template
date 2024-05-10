@@ -15,12 +15,11 @@
     "test:ui": "vitest --ui",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
-    "storybook:coverage": "test-storybook --coverage",
+    "storybook:coverage": "npm run storybook:test -- --coverage",
     "storybook:kill": "kill $( ps aux | grep .bin/storybook | grep -v grep | awk '{print $2}' )",
+    "storybook:pipeline": "sh -c 'npm run storybook -- --ci &' && sleep 5 && npm run storybook:coverage && npm run storybook:kill",
     "storybook:test": "test-storybook",
-    "pipeline:one": "npm run format:check && npm run lint && npm run test:coverage",
-    "pipeline:two": "sh -c 'npm run storybook -- --ci &' && sleep 5 && npm run storybook:test && npm run storybook:kill",
-    "pipeline": "npm run pipeline:one && npm run pipeline:two"
+    "pipeline": "npm run format:check && npm run lint && npm run test:coverage && npm run storybook:pipeline"
   },
   "dependencies": {
     "i18next": "^23.9.0",
