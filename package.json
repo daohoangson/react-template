@@ -15,9 +15,9 @@
     "test:ui": "vitest --ui",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
-    "storybook:coverage": "npm run storybook:test -- --coverage",
+    "storybook:coverage:report": "nyc report --temp-dir coverage/storybook --report-dir coverage/storybook --reporter=lcov --reporter=text-summary",
     "storybook:kill": "kill $( ps aux | grep .bin/storybook | grep -v grep | awk '{print $2}' )",
-    "storybook:pipeline": "sh -c 'npm run storybook -- --ci &' && sleep 5 && npm run storybook:coverage && npm run storybook:kill",
+    "storybook:pipeline": "sh -c 'npm run storybook -- --ci &' && sleep 5 && npm run storybook:test -- --coverage && npm run storybook:coverage:report && npm run storybook:kill",
     "storybook:test": "test-storybook",
     "pipeline": "npm run format:check && npm run lint && npm run test:coverage && npm run storybook:pipeline"
   },
