@@ -29,7 +29,7 @@
     "react-i18next": "^14.0.5"
   },
   "devDependencies": {
-    "@storybook/addon-coverage": "^1.0.0",
+    "@storybook/addon-coverage": "^1.0.4",
     "@storybook/addon-essentials": "^8.4.4",
     "@storybook/addon-interactions": "^8.4.4",
     "@storybook/addon-links": "^8.4.4",
