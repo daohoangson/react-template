@@ -1,14 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import App from "@/App";
+import { AppProviders } from "./AppProviders";
 
 const meta = {
-  title: "Example/App",
-  component: App,
-  parameters: {
-    layout: "centered",
+  title: "AppProviders",
+  component: AppProviders,
+
+  args: {
+    children: "Foo",
   },
-} satisfies Meta<typeof App>;
+} satisfies Meta<typeof AppProviders>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
