@@ -14,7 +14,11 @@ export default defineConfig({
   test: {
     environment: "jsdom",
     coverage: {
-      exclude: ["**/[.]**", "**/*.d.ts", "src/stories/**"],
+      provider: "istanbul",
+      reporter: ["json", "lcov", "text-summary"],
+      // coverage: everything except pure components (will be tested via storybook)
+      include: ["src/**"],
+      exclude: ["src/tests/**", "src/components/**"],
     },
     globals: true,
     setupFiles: ["./src/tests/setup.ts"],
