@@ -17,7 +17,7 @@ export default [
   js.configs.recommended,
   jsxA11y.flatConfigs.recommended,
   prettier,
-  { ignores: ["coverage/**", "dist/**"] },
+  { ignores: ["coverage/**", "dist/**", "storybook-static/**"] },
 
   // import
   importConfigs.recommended,
