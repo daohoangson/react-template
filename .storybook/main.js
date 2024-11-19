@@ -1,7 +1,9 @@
-import type { StorybookConfig } from "@storybook/react-vite";
 import { mergeConfig } from "vite";
 
-const config: StorybookConfig = {
+/**
+ * @type {import('@storybook/react-vite').StorybookConfig}
+ */
+const config = {
   stories: [
     "../src/**/*.mdx",
     "../src/**/*.stories.ts",
@@ -17,7 +19,7 @@ const config: StorybookConfig = {
     options: {},
   },
   docs: {
-    autodocs: "tag",
+    autodocs: true,
   },
   viteFinal: async (config) => {
     const { default: istanbul } = await import("vite-plugin-istanbul");
