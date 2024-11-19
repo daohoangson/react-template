@@ -1,9 +1,11 @@
-import type { Preview } from "@storybook/react";
 import React from "react";
 
 import { AppProviders } from "../src/components/AppProviders";
 
-const preview: Preview = {
+/**
+ * @type {import('@storybook/react').Preview}
+ */
+const preview = {
   decorators: [
     (Story) => (
       <AppProviders>
