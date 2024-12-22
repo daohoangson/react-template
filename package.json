@@ -22,7 +22,7 @@
     "pipeline": "npm run format:check && npm run lint && npm run test:coverage && npm run storybook:pipeline"
   },
   "dependencies": {
-    "i18next": "^23.16.8",
+    "i18next": "^24.2.0",
     "i18next-browser-languagedetector": "^8.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
