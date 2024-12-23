@@ -1,0 +1,37 @@
+on:
+  push:
+
+env:
+  NODE_VERSION: 20
+
+jobs:
+  unit-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # for SonarQube
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Cache NPM dependencies
+        uses: actions/cache@v4
+        with:
+          path: "./node_modules"
+          key: ${{ runner.os }}-${{ hashFiles('./package-lock.json') }}
+
+      - run: npm ci
+      - run: npx playwright install chromium
+      - run: npm run pipeline
+        env:
+          STORYBOOK_DISABLE_TELEMETRY: 1
+
+      - name: SonarQube Cloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # for PR metadata
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
