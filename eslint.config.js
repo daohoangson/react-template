@@ -17,6 +17,7 @@ export default [
   js.configs.recommended,
   jsxA11y.flatConfigs.recommended,
   prettier,
+  reactRefresh.configs.vite,
   { ignores: ["coverage", "dist", "storybook-static"] },
 
   // import
@@ -61,17 +62,6 @@ export default [
   {
     plugins: { "react-hooks": reactHooks },
     rules: reactHooks.configs.recommended.rules,
-  },
-
-  // react-refresh
-  {
-    plugins: { "react-refresh": reactRefresh },
-    rules: {
-      "react-refresh/only-export-components": [
-        "warn",
-        { allowConstantExport: true },
-      ],
-    },
   },
 
   // storybook

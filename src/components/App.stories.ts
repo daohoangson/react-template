@@ -16,4 +16,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {},
+
+  // eslint-disable-next-line storybook/no-redundant-story-name
+  name: "Primary",
 };
