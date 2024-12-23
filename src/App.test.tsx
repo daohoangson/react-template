@@ -1,3 +1,4 @@
+import { screen } from "@testing-library/react";
 import { userEvent } from "@testing-library/user-event";
 import { expect } from "vitest";
 
@@ -6,16 +7,16 @@ import { renderProviders } from "@/tests/utils";
 
 describe("App", () => {
   it("renders counter", async () => {
-    const { getByText } = renderProviders(<App />);
-    const clicked0 = getByText("You haven't clicked yet");
+    renderProviders(<App />);
+    const clicked0 = screen.getByText("You haven't clicked yet");
     expect(clicked0).toBeInTheDocument();
 
     const user = userEvent.setup();
     await user.click(clicked0);
-    const clicked1 = getByText("You have clicked 1 time");
+    const clicked1 = screen.getByText("You have clicked 1 time");
     expect(clicked1).toBeInTheDocument();
 
     await user.click(clicked1);
-    expect(getByText("You have clicked 2 times")).toBeInTheDocument();
+    expect(screen.getByText("You have clicked 2 times")).toBeInTheDocument();
   });
 });

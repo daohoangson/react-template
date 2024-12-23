@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 
 import js from "@eslint/js";
+import vitest from "@vitest/eslint-plugin";
 import prettier from "eslint-config-prettier";
 import { flatConfigs as importConfigs } from "eslint-plugin-import";
 import jsxA11y from "eslint-plugin-jsx-a11y";
@@ -9,6 +10,7 @@ import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import storybook from "eslint-plugin-storybook";
+import testingLibrary from "eslint-plugin-testing-library";
 import globals from "globals";
 import { configs as typescriptConfigs } from "typescript-eslint";
 
@@ -17,6 +19,9 @@ export default [
   js.configs.recommended,
   jsxA11y.flatConfigs.recommended,
   prettier,
+  reactRefresh.configs.vite,
+  testingLibrary.configs["flat/react"],
+  vitest.configs.recommended,
   { ignores: ["coverage", "dist", "storybook-static"] },
 
   // import
@@ -61,17 +66,6 @@ export default [
   {
     plugins: { "react-hooks": reactHooks },
     rules: reactHooks.configs.recommended.rules,
-  },
-
-  // react-refresh
-  {
-    plugins: { "react-refresh": reactRefresh },
-    rules: {
-      "react-refresh/only-export-components": [
-        "warn",
-        { allowConstantExport: true },
-      ],
-    },
   },
 
   // storybook
