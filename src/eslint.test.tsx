@@ -61,9 +61,7 @@ describe("eslint", () => {
   test("react.configs.flat.recommended", () => {
     // https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/display-name.md
     // eslint-disable-next-line react/display-name
-    const WithoutDisplayName = React.memo(() => {
-      return <p>Foo</p>;
-    });
+    const WithoutDisplayName = React.memo(() => <p>Foo</p>);
     render(<WithoutDisplayName />);
     expect(screen.getByText("Foo")).toBeInTheDocument();
   });
@@ -73,9 +71,7 @@ describe("eslint", () => {
       children,
     }) => {
       React.useEffect(
-        () => {
-          expect(children).toBeTypeOf("string");
-        },
+        () => void expect(children).toBeTypeOf("string"),
         // eslint-disable-next-line react-hooks/exhaustive-deps
         [],
       );
