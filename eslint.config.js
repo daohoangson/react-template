@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 
 import js from "@eslint/js";
+import vitest from "@vitest/eslint-plugin";
 import prettier from "eslint-config-prettier";
 import { flatConfigs as importConfigs } from "eslint-plugin-import";
 import jsxA11y from "eslint-plugin-jsx-a11y";
@@ -18,6 +19,7 @@ export default [
   jsxA11y.flatConfigs.recommended,
   prettier,
   reactRefresh.configs.vite,
+  vitest.configs.recommended,
   { ignores: ["coverage", "dist", "storybook-static"] },
 
   // import

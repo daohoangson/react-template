@@ -14,6 +14,7 @@ describe("eslint", () => {
     // https://eslint.org/docs/latest/rules/no-debugger
     // eslint-disable-next-line no-debugger
     debugger;
+    expect(true).toBeTruthy();
   });
 
   test("jsxA11y.flatConfigs.recommended", () => {
@@ -27,6 +28,11 @@ describe("eslint", () => {
   test("reactRefresh.configs.vite", () => {
     expect(Component).toBeTypeOf("function");
     expect(notComponent).toBeTypeOf("function");
+  });
+
+  // eslint-disable-next-line vitest/expect-expect
+  test("vitest.configs.recommended", () => {
+    // https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/expect-expect.md
   });
 
   describe("eslint-plugin-import", () => {
