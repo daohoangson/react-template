@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 
 import js from "@eslint/js";
@@ -16,7 +17,7 @@ export default [
   js.configs.recommended,
   jsxA11y.flatConfigs.recommended,
   prettier,
-  { ignores: ["coverage/**", "dist/**", "storybook-static/**"] },
+  { ignores: ["coverage", "dist", "storybook-static"] },
 
   // import
   importConfigs.recommended,
@@ -35,7 +36,19 @@ export default [
     },
     settings: {
       "import/internal-regex": "^@/",
-      "import/resolver": { node: true, typescript: true },
+      "import/resolver": {
+        node: true,
+        typescript: {
+          project: [
+            "tsconfig.json",
+            "packages/*/tsconfig.json",
+
+            // Specify the app JSON as an workaround for this bug
+            // https://github.com/import-js/eslint-import-resolver-typescript/issues/94
+            "tsconfig.app.json",
+          ],
+        },
+      },
     },
   },
 
@@ -69,12 +82,12 @@ export default [
   ...typescriptConfigs.recommendedTypeChecked,
   {
     languageOptions: {
+      ecmaVersion: 2020,
       globals: globals.browser,
       parserOptions: {
         projectService: {
           allowDefaultProject: [".storybook/*.js", "*.js"],
         },
-        tsconfigRootDir: import.meta.dirname,
       },
     },
     rules: {
