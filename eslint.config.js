@@ -36,7 +36,19 @@ export default [
     },
     settings: {
       "import/internal-regex": "^@/",
-      "import/resolver": { node: true, typescript: true },
+      "import/resolver": {
+        node: true,
+        typescript: {
+          project: [
+            "tsconfig.json",
+            "packages/*/tsconfig.json",
+
+            // Specify the app JSON as an workaround for this bug
+            // https://github.com/import-js/eslint-import-resolver-typescript/issues/94
+            "tsconfig.app.json",
+          ],
+        },
+      },
     },
   },
 
@@ -76,7 +88,6 @@ export default [
         projectService: {
           allowDefaultProject: [".storybook/*.js", "*.js"],
         },
-        tsconfigRootDir: import.meta.dirname,
       },
     },
     rules: {
