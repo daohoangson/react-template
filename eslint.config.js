@@ -10,6 +10,7 @@ import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import storybook from "eslint-plugin-storybook";
+import testingLibrary from "eslint-plugin-testing-library";
 import globals from "globals";
 import { configs as typescriptConfigs } from "typescript-eslint";
 
@@ -19,6 +20,7 @@ export default [
   jsxA11y.flatConfigs.recommended,
   prettier,
   reactRefresh.configs.vite,
+  testingLibrary.configs["flat/react"],
   vitest.configs.recommended,
   { ignores: ["coverage", "dist", "storybook-static"] },
 

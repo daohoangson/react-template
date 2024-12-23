@@ -30,6 +30,15 @@ describe("eslint", () => {
     expect(notComponent).toBeTypeOf("function");
   });
 
+  test('testingLibrary.configs["flat/react"]', () => {
+    const Component = () => <p>Foo</p>;
+    const { getByText } = render(<Component />);
+
+    // https://github.com/testing-library/eslint-plugin-testing-library/blob/main/docs/rules/prefer-screen-queries.md
+    // eslint-disable-next-line testing-library/prefer-screen-queries
+    expect(getByText("Foo")).toBeInTheDocument();
+  });
+
   // eslint-disable-next-line vitest/expect-expect
   test("vitest.configs.recommended", () => {
     // https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/expect-expect.md
