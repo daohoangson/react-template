@@ -4,7 +4,7 @@ This template provides a minimal setup to get React working in Vite with HMR and
 
 ## Prerequisites
 
-Use Node.js 22.12.0 or later.
+Use Node.js 22.23.3 or later.
 
 Currently, two official plugins are available:
 
