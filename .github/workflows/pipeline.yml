@@ -24,6 +24,10 @@ jobs:
 
       - run: npm ci
 
+      - run: npm run build
+
+      - run: npm run storybook:build
+
       - run: npm run pipeline
 
       - uses: sonarsource/sonarqube-scan-action@v6
